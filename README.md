@@ -1,5 +1,7 @@
 # InspirationTrace — A2 Prototype (V5.5 English)
 
+**README prose word count: 579 words** (excluding code blocks and URLs).
+
 **Status:** Student-tested, **scripted offline interaction prototype** for online novel authors. It demonstrates three prepared story-outline turns, version recovery, linked underline ↔ evidence-card highlighting, reference/review controls and JSON export. The intended open-ended AI dialogue and automatic similar-work retrieval are **not validated**. Candidate book links are manually curated thematic comparisons—not plagiarism findings, model-used sources or originality scores.
 
 ## Technology and run instructions
@@ -19,6 +21,12 @@ py server.py
 Open **http://127.0.0.1:8765/**. Leave **Scripted Offline Demo** selected. Click **Load Fantasy-Rescue Demo**, then **Send & Continue**; enter **Add dragons to the story**, then **Give the prince and dragons a deeper relationship**. Hover an underlined phrase to highlight its matching evidence card; inspect publisher links, use **Keep as reference** / **Mark reviewed**, restore a version and try **Export Project**. Stop the server with **Ctrl+C**. On Windows, `python` may replace `py`; no third-party Python packages are needed for this demo.
 
 ## Development and test evidence
+
+**Key decisions and checks (retrospectively documented; Git commits were uploaded together on 23 Nov 2026):**
+- **V4 → V5:** A live API request failed with HTTP 429, so the student chose an explicitly scripted offline fallback; mocked tests were kept separate from live tests ([V5.1 development note](V5_1_CHANGELOG.md)).
+- **V5.1:** The third-round relationship request and absent sources led to a prepared V3 branch and two publisher-linked thematic cards; checked with scripted tests ([version evidence upload](https://github.com/kexuanmoonlight-droid/InspirationTrace/commit/2f058c5ea4a302f24b214beceefe5507f3368726)).
+- **V5.4:** Student screenshots revealed missing V1 underlines; phrase anchors and regression checks were corrected, then the offline browser flow was accepted ([V5.4 preview upload](https://github.com/kexuanmoonlight-droid/InspirationTrace/commit/f8bb901a25251c07f8b51982ee0e575a24d06720)).
+- **V5.5:** The interface and scripted content were translated into English, retaining `legacy_zh/`; 19 automated checks and a mocked-browser check passed, followed by student Windows acceptance ([English UI commit](https://github.com/kexuanmoonlight-droid/InspirationTrace/commit/b2758d7b725e456327d01ac744cdca24550e7d95)).
 
 - [Test report](TEST_REPORT.md): 19 passing automated checks, student-reported English browser acceptance, earlier HTTP 429 API-credit blocker and limits of testing.
 - [Development log](DEVELOPMENT_LOG.md): decisions, bugs, corrections and student/AI contributions across versions.
