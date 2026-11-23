@@ -104,3 +104,8 @@ The two comparison candidates retain their genuine publisher URLs. They are **ma
 **Testing:** 19 Python checks passed after adapting expected language; an automated Chromium DOM interaction walkthrough using mocked Python API responses confirmed V1–V3 phrase anchors, sidebar highlights, and review checkboxes. The user's **own** Windows browser acceptance of V5.5 English remains pending. Previous V5.4 student acceptance remains valid for V5.4 only.
 
 **Project evidence:** `screenshots/v5_4_chinese_accepted_hover.png` and `screenshots/v5_4_chinese_accepted_conversation.png` are user-supplied screenshots of the preceding accepted Chinese prototype. `screenshots/v5_5_english_browser_smoke.png` is an automated browser test render, *not* a screenshot of a student-run acceptance test.
+
+
+### Final English acceptance note (23 Nov 2026)
+
+The student confirmed that V5.5 English completed the intended offline end-to-end walkthrough without observed issues. This is acceptance of a **scripted prototype**, not a validation of open-ended LLM generation or automatic similar-work retrieval. The original Chinese baseline and its screenshots remain clearly identified as historical evidence. See `TEST_REPORT.md` and `DEVELOPMENT_LOG.md` for the testing and design record.
