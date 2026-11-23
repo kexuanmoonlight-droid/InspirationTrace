@@ -64,9 +64,17 @@ Optional cloud mode is enabled by configuring `OPENAI_API_KEY` in your terminal 
 - `DEVELOPMENT_LOG.md`: chronological record of student design decisions, AI-assisted implementation changes, A1/A2 report corrections and what has or has not been personally tested.
 - `OFFLINE_TEST_STEPS.md`: hands-on V5 scripted demonstration acceptance cases.
 
-## Coursework / AI assistance disclosure
+## Generative AI Use Declaration (A2)
 
-This V5 adaptation was AI-assisted. The user defined the fixed scope (multi-turn creative dialog plus evidence sidebar), discovered V4's API-credit blocker, and approved an offline fallback and optional local model route. The generated modifications and automated tests still require the student to run real browser checks before claiming personal verification. This document is not a substitute for the student's own test log.
+**Student-led, AI-assisted work.** OpenAI ChatGPT assisted with the development and documentation of **Assignment 2 (A2)**. It was not an autonomous developer or a substitute for the student's project decisions, critical review, or final acceptance. This statement describes AI assistance for A2; it does not make a claim about AI use in unrelated coursework.
+
+**What the student led:** The student defined the research focus (online novel authors), intended open-ended conversational co-creation, traceable candidate sources, author-controlled decisions, outline versions, and the exact underline-to-sidebar hover requirement. The student identified failures in scripted third-turn revision, missing evidence cards, and V1 underline highlighting; requested revisions; and decided to implement a clearly labelled offline fallback after an OpenAI request failed with HTTP 429 because API credits were exhausted. The student installed and used Python on Windows, checked the actual interface, provided screenshots, confirmed the final English V5.5 walkthrough, and exported the project.
+
+**What ChatGPT assisted with:** Generating and revising Python, HTML, and JavaScript code; proposing and implementing fixes; creating automated and scripted test cases; interpreting failures; preparing README, test and development documentation; and drafting and revising the A2 report, storyboard, and architecture explanation. Substantial code and prose were AI-assisted, not merely grammar-checked.
+
+**How the results were checked and changed:** The student tested the local server and browser interactions, identified defects not caught by initial automated checks, and required targeted fixes rather than removing earlier design requirements. Python checks (19 passing) and a developer-run mocked-browser interaction check are reported separately from student-operated Windows browser tests and screenshots. The final English offline walkthrough was student-reported as successful. Two published-work pages were used as manually curated *thematic* references with publisher or publishing-distributor URLs, not model-used citations, verified textual overlaps, automated retrieval results, or evidence of originality.
+
+**Limits and responsibility:** The delivered offline mode has three prepared dialogue stages and cannot prove unrestricted conversational intelligence. Real OpenAI generation, local Ollama performance, and reliable dynamic similarity retrieval were not validated. The student remains responsible for reviewing the submission, academic claims, cited sources, and evidence. See [TEST_REPORT.md](TEST_REPORT.md), [DEVELOPMENT_LOG.md](DEVELOPMENT_LOG.md), and the actual [commit history](https://github.com/kexuanmoonlight-droid/InspirationTrace/commits/main/) for the disclosed development and checks.
 
 
 ## V5.1 close-loop update
