@@ -121,3 +121,8 @@ The student supplied a V1 screenshot showing actual candidate source cards but n
 ## 2026-11-23 — Student accepts V5.4 and chooses to move to submission preparation
 
 The student reported completing the full V5.4 workflow and a successful project export with no observed problems. This follows their earlier detection of the missing V1 underline-to-evidence hover interaction and the targeted fix. The development decision is to stop adding prototype features, retain V5.4 as the **accepted offline scripted demonstration**, and next prepare GitHub evidence and align the written A2 artefacts. This acceptance does **not** verify dynamic retrieval or live free-form AI generation, which remain constrained by API availability or untested local inference. No earlier Git commits should be invented or backdated.
+
+
+## 23 November 2026 — V5.5 English-language interface (AI-assisted, user-requested)
+
+After the student confirmed the V5.4 offline interaction and JSON export, the student supplied two Windows screenshots and requested English-language presentation for the final coursework, including updating GitHub. The implementation retained the entire interaction model and backed up the accepted Chinese sources under `legacy_zh/`. Labels, three scripted example scenarios, scripted conversation responses, English evidence comparisons, and V1–V3 phrase-level hover anchors were translated. Student V5.4 screenshots remain historical evidence; V5.5 was checked with 19 Python tests and a mocked-API headless browser smoke test, but **student acceptance on Windows is not yet established**. No change was made to the intended study population or open-ended AI co-creation ambition; cloud API billing remains blocked.
