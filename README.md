@@ -1,4 +1,4 @@
-# InspirationTrace V5 — Offline Demo / Local Ollama / OpenAI
+# InspirationTrace V5.5 EN — Offline Demo / Local Ollama / OpenAI
 
 **Status:** research prototype. V4 is preserved separately; this is a new branch/version. No API credit is required for the default offline demo.
 
@@ -8,8 +8,8 @@
 2. In File Explorer press **Alt + D**, type `powershell`, press Enter.
 3. Run `py test_offline_modes.py` (optional), then `py server.py`.
 4. Open **http://127.0.0.1:8765/** in Chrome or Edge.
-5. In the **运行模式** selector, leave **离线脚本演示** selected. Choose one of the example buttons, press **发送并继续创作**, then review the outline and sidebar.
-6. Test the scripted second round with the fantasy example: after generating V1, type **加入龙元素**. The prepared V2 changes the main plot and keeps V1 recoverable. This is a **pre-authored demonstration**, not arbitrary AI generation.
+5. In the **Run Mode** selector, leave **Scripted Offline Demo** selected. Choose a scenario button, press **Send & Continue**, then review the outline and sidebar.
+6. Test the scripted second round with the fantasy example: after generating V1, type **Add dragons to the story**. The prepared V2 changes the main plot and keeps V1 recoverable. This is a **pre-authored demonstration**, not arbitrary AI generation.
 
 **If V4 is already running on port 8765:** press `Ctrl+C` in the old PowerShell terminal first. Start V5 afterward. The two projects should not run on the same port simultaneously.
 
@@ -32,7 +32,7 @@ ollama pull qwen2.5:3b
 ollama list
 ```
 
-Default local model: `qwen2.5:3b`. To change it, set `$env:OLLAMA_MODEL="your-model-name"` before `py server.py`. Local endpoint defaults to `http://127.0.0.1:11434`; configurable with `OLLAMA_URL`. Choose **本地Ollama模型** in the site. The app checks `/api/tags` and reports if the model isn't installed. The local model may generate malformed JSON or poor prose, depending on its size and capabilities. There is **no fallback to cloud billing** when it fails.
+Default local model: `qwen2.5:3b`. To change it, set `$env:OLLAMA_MODEL="your-model-name"` before `py server.py`. Local endpoint defaults to `http://127.0.0.1:11434`; configurable with `OLLAMA_URL`. Choose **Local Ollama Model** in the site. The app checks `/api/tags` and reports if the model isn't installed. The local model may generate malformed JSON or poor prose, depending on its size and capabilities. There is **no fallback to cloud billing** when it fails.
 
 Optional cloud mode is enabled by configuring `OPENAI_API_KEY` in your terminal (do not paste a key into source files or GitHub). Switch the browser selector to the cloud mode. To reduce cost, turn off the checkbox for auto-search while testing story generation.
 
@@ -71,7 +71,7 @@ This V5 adaptation was AI-assisted. The user defined the fixed scope (multi-turn
 
 ## V5.1 close-loop update
 
-See `V5_1_CHANGELOG.md` and `OFFLINE_TEST_STEPS.md`. The fantasy offline script now supports three **fixed** outline rounds (initial → dragons → prince/dragon relationship). Its right sidebar shows two real, manually verified book-page URLs; these are thematic references, **not** search results, computed similarity, proof of copying, or LLM provenance. Public links still require the reviewer to inspect the page. Browser acceptance is pending. This does not expand offline mode to unrestricted multi-turn AI conversation.
+See `V5_1_CHANGELOG.md` and `OFFLINE_TEST_STEPS.md`. The fantasy offline script now supports three **fixed** outline rounds (initial → dragons → prince/dragon relationship). Its right sidebar shows two real, manually verified book-page URLs; these are thematic references, **not** search results, computed similarity, proof of copying, or LLM provenance. Public links still require the reviewer to inspect the page. V5.4 browser acceptance was subsequently reported by the student. This does not expand offline mode to unrestricted multi-turn AI conversation.
 
 ## Important V5.2 preserved interaction: underline ↔ sidebar hover
 
@@ -85,3 +85,22 @@ The student found that V1 displayed source cards with no underlines. Root cause:
 ## Final V5.4 student acceptance and hand-in preparation
 
 On 23 November 2026, the student reported a successful end-to-end walkthrough and file export on V5.4 with no observed issues. This is acceptance of the **offline scripted demonstration**, not verification of unrestricted LLM dialogue or automatic similarity retrieval. See [TEST_REPORT.md](TEST_REPORT.md) for the evidence boundary and [SUBMISSION_CHECKLIST.md](SUBMISSION_CHECKLIST.md) for the GitHub and A2 hand-in workflow.
+
+
+## V5.5 EN — English-language interface and demonstration content (23 Nov 2026)
+
+**Current default version: V5.5 EN.** The original, student-accepted Chinese V5.4 UI and scripted data remain in `legacy_zh/` and were **not overwritten**. The new interface, outline text, scripted assistant messages, comparison descriptions, feedback, mode labels and demo prompts are in English. The original user-designed mechanics remain unchanged: outline/side-panel underlines, bidirectional hover and keyboard-focus highlights, independent versions and review/reference flags, export to JSON, and three mode choices.
+
+**Three-round English fantasy demo** (free, pre-written, *not* generative AI):
+1. Click **Load Fantasy-Rescue Demo** and **Send & Continue**.
+2. Type **Add dragons to the story**; send and confirm V2.
+3. Type **Give the prince and dragons a deeper relationship**; send and confirm V3.
+4. Hover an **underlined phrase**; verify the corresponding publisher-linked card highlights. Hover the card to highlight the phrase. Check **Keep as reference** and **Mark reviewed**, restore a version, and export JSON.
+
+The two comparison candidates retain their genuine publisher URLs. They are **manually curated thematic analogies**, *not* computed similarities, plagiarism detections or model-used citations. The English revision cannot turn scripted demonstration responses into live LLM behaviour.
+
+**Migration:** This English build uses new browser local-storage keys (`inspirationtrace-chat-evidence-v5-5-en` and `inspirationtrace-v5-5-en-mode`) to avoid showing saved Chinese stories inside English examples. Old V5.4 browser data are not erased; exported JSON remains the durable record. Exported V5.4 JSON is a historical Chinese test artefact and should not be represented as English-generated output.
+
+**Testing:** 19 Python checks passed after adapting expected language; an automated Chromium DOM interaction walkthrough using mocked Python API responses confirmed V1–V3 phrase anchors, sidebar highlights, and review checkboxes. The user's **own** Windows browser acceptance of V5.5 English remains pending. Previous V5.4 student acceptance remains valid for V5.4 only.
+
+**Project evidence:** `screenshots/v5_4_chinese_accepted_hover.png` and `screenshots/v5_4_chinese_accepted_conversation.png` are user-supplied screenshots of the preceding accepted Chinese prototype. `screenshots/v5_5_english_browser_smoke.png` is an automated browser test render, *not* a screenshot of a student-run acceptance test.
