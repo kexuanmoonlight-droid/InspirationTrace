@@ -161,3 +161,13 @@ An additional regression path was identified: evidence cards saved by previous l
 | Unrestricted conversation via local Ollama | **Not tested** | Local model not confirmed installed or run |
 
 **Disposition:** Freeze V5.4 as the accepted scripted prototype. Do not interpret the earlier scripted-demo success as evidence of an operational open-ended AI model, automated similarity measurement, or provenance of model training sources. Future work is GitHub packaging, actual commit provenance and aligning the A2 report/storyboard/architecture to this accepted build.
+
+
+## V5.5 EN — language-localisation regression (23 November 2026)
+
+- **Change:** translated UI, predefined outlines, scripted responses, evidence descriptions and exact phrase anchors into English without changing feature scope. Kept `legacy_zh/` as the accepted V5.4 baseline.
+- **Automated tests:** 19/19 passed in the developer environment after updating language assertions; JS syntax validation passed.
+- **Browser smoke:** headless Chromium with intercepted API calls verified English fantasy V1 → V2 → V3, two underlined phrases and two source cards per stage, left-to-right and right-to-left hover highlighting, and a source review checkbox. This is a **mocked browser integration check**, not real Windows/browser acceptance or live AI testing.
+- **Student Windows acceptance of the English interface:** PENDING, should be re-tested.
+- **Earlier V5.4 student acceptance:** already reported by the student; two provided screenshots document the Chinese version's V3, hover focus and conversation panel.
+- **Provider billing:** the observed cloud API HTTP 429 credit balance exhausted remains a blocked live-generation case; neither English translation nor offline simulation fixes API credits.
