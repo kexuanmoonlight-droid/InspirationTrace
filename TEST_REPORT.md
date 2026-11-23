@@ -176,3 +176,8 @@ An additional regression path was identified: evidence cards saved by previous l
 ## V5.5 English — student Windows final acceptance (23 November 2026)
 
 The student reported completing the full English V5.5 browser walkthrough with no observed problems, including the three-round scripted fantasy demonstration, linked source cards and project export. The student also supplied further screenshots in the coursework conversation. This is a **student-reported browser acceptance result**; it remains distinct from 19/19 automated Python checks and the developer-run mocked-API browser smoke test. No real OpenAI generation, Ollama generation, dynamic web retrieval or originality assessment was established.
+
+
+## Archived V5.4 student export — independently inspectable evidence (23 November 2026)
+
+The [original student-exported Chinese V5.4 JSON](evidence/V5_4_Chinese_scripted_test_export.json) records **three** scripted outline versions, **six** dialogue messages and the candidate-work records stored for each version. It has been checked for common secret-key strings, email addresses and local-user paths before publication. The V2 cards were marked selected and reviewed in this export; other version records retain their own states. This evidence documents **historical V5.4 scripted interaction and saved state**, not V5.5 English output, real LLM generation, automated discovery, validated thematic similarity or originality assessment. The authentic export timestamp and contents were not rewritten.
