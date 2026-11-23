@@ -23,7 +23,7 @@ Open **http://127.0.0.1:8765/**. Leave **Scripted Offline Demo** selected. Click
 - [Test report](TEST_REPORT.md): 19 passing automated checks, student-reported English browser acceptance, earlier HTTP 429 API-credit blocker and limits of testing.
 - [Development log](DEVELOPMENT_LOG.md): decisions, bugs, corrections and student/AI contributions across versions.
 - [Manual testing steps](OFFLINE_TEST_STEPS.md), [version change notes](V5_5_CHANGELOG.md) and [Git commit history](https://github.com/kexuanmoonlight-droid/InspirationTrace/commits/main/).
-- [Screenshots](screenshots/) and [archived Chinese UI](legacy_zh/) are supporting evidence, not additional live-AI validation.
+- [Screenshots](screenshots/), [original V5.4 Chinese JSON test export](evidence/V5_4_Chinese_scripted_test_export.json) and [archived Chinese UI](legacy_zh/) support the reported historical tests; they do not validate live AI.
 
 ## Generative AI use declaration — A2
 
