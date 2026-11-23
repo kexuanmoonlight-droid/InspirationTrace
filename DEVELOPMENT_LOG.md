@@ -126,3 +126,8 @@ The student reported completing the full V5.4 workflow and a successful project 
 ## 23 November 2026 — V5.5 English-language interface (AI-assisted, user-requested)
 
 After the student confirmed the V5.4 offline interaction and JSON export, the student supplied two Windows screenshots and requested English-language presentation for the final coursework, including updating GitHub. The implementation retained the entire interaction model and backed up the accepted Chinese sources under `legacy_zh/`. Labels, three scripted example scenarios, scripted conversation responses, English evidence comparisons, and V1–V3 phrase-level hover anchors were translated. Student V5.4 screenshots remain historical evidence; V5.5 was checked with 19 Python tests and a mocked-API headless browser smoke test, but **student acceptance on Windows is not yet established**. No change was made to the intended study population or open-ended AI co-creation ambition; cloud API billing remains blocked.
+
+
+## 23 November 2026 — student acceptance of final English prototype
+
+Following the English localisation and automated regression checks, the student independently reported completing all V5.5 English browser tests successfully, with no observed issues, and provided additional screenshots for final coursework preparation. The accepted scope remains the transparently scripted three-round creative/review interaction, version restore, linked thematic cards and export. Open-ended generative AI and automated source retrieval remain unverified due to the earlier API credit constraint. Coursework report and storyboard were then aligned with this accepted implementation.
