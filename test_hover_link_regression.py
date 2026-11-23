@@ -14,7 +14,7 @@ class HoverLinkRegression(unittest.TestCase):
 
     def test_two_and_three_stage_anchors_resolve_to_exact_phrases(self):
         current=None
-        for query,stage in [('公主救王子',1),('加入龙元素',2),('我想让王子和龙有更多关系',3)]:
+        for query,stage in [('A strong princess rescues a prince',1),('Add dragons',2),('Give the prince and dragons a deeper relationship',3)]:
             result=mock_chat({'message':query,'currentOutline':current})
             self.assertTrue(result['updated'])
             current=result['outline']
@@ -28,7 +28,7 @@ class HoverLinkRegression(unittest.TestCase):
                 self.assertIn(item['highlightText'],current['sections'][item['sectionIndex']]['text'])
 
     def test_v1_has_visible_hover_anchors(self):
-        first=mock_chat({'message':'一位公主救王子'})['outline']
+        first=mock_chat({'message':'A princess rescues a prince'})['outline']
         cards=demo_evidence({'outline':first})['records']
         self.assertEqual({r['id'] for r in cards},{'fantasy-priory','fantasy-hobbit'})
         self.assertEqual(len([r for r in cards if r['highlightText']]),2)
@@ -41,7 +41,7 @@ class HoverLinkRegression(unittest.TestCase):
         self.assertIn('reviewed:old?Boolean(old.reviewed):false', self.frontend)
 
     def test_memory_anchor_is_present(self):
-        result=mock_chat({'message':'记忆交易城故事'})
+        result=mock_chat({'message':'A story about selling memories'})
         records=demo_evidence({'outline':result['outline']})['records']
         self.assertEqual(len(records),1)
         self.assertIn(records[0]['highlightText'],result['outline']['sections'][0]['text'])
