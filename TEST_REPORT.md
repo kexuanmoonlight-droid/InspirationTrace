@@ -171,3 +171,8 @@ An additional regression path was identified: evidence cards saved by previous l
 - **Student Windows acceptance of the English interface:** PENDING, should be re-tested.
 - **Earlier V5.4 student acceptance:** already reported by the student; two provided screenshots document the Chinese version's V3, hover focus and conversation panel.
 - **Provider billing:** the observed cloud API HTTP 429 credit balance exhausted remains a blocked live-generation case; neither English translation nor offline simulation fixes API credits.
+
+
+## V5.5 English — student Windows final acceptance (23 November 2026)
+
+The student reported completing the full English V5.5 browser walkthrough with no observed problems, including the three-round scripted fantasy demonstration, linked source cards and project export. The student also supplied further screenshots in the coursework conversation. This is a **student-reported browser acceptance result**; it remains distinct from 19/19 automated Python checks and the developer-run mocked-API browser smoke test. No real OpenAI generation, Ollama generation, dynamic web retrieval or originality assessment was established.
