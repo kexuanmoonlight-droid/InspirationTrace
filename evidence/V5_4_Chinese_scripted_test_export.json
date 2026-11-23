@@ -1,0 +1,218 @@
+{
+  "application": "InspirationTrace",
+  "exportedAt": "2026-11-23T04:27:09.365Z",
+  "messages": [
+    {
+      "role": "user",
+      "text": "我想创作一个强壮的公主拯救王子的故事"
+    },
+    {
+      "role": "assistant",
+      "text": "【模拟响应】已加载“奇幻救援 · 新元素融合演示”的第一版示例大纲。此处没有调用AI。"
+    },
+    {
+      "role": "user",
+      "text": "我想加入龙的元素"
+    },
+    {
+      "role": "assistant",
+      "text": "【模拟响应】已切换到预写的“加入龙”第二幕示例，龙影响了整个主要冲突。这只是固定脚本，不代表能够理解任意新要求。"
+    },
+    {
+      "role": "user",
+      "text": "我想加入龙和王子之间的关系"
+    },
+    {
+      "role": "assistant",
+      "text": "【模拟响应】已加载预写的第三轮“王子与龙族关系”版本；人物关系改变了营救动机、政治冲突和结局。这不是自由AI理解。右侧可继续审阅人工核实的主题候选作品。"
+    }
+  ],
+  "versions": [
+    {
+      "number": 1,
+      "outline": {
+        "title": "穿越灰烬山脉的救援",
+        "sections": [
+          {
+            "heading": "故事起点",
+            "text": "一位力大无穷却不愿继承王位的公主决定救出被困山谷的王子，并证明救援不必依靠王国的旧预言。"
+          },
+          {
+            "heading": "角色关系",
+            "text": "王子掌握古地图知识，但不擅长战斗；公主精于行动，却不懂山区居民与王室之间的旧约。两人必须互相信任。"
+          },
+          {
+            "heading": "冲突",
+            "text": "救援途中，王国军队企图封锁山路，因为他们害怕山谷中有人知道王室曾经的背叛。"
+          },
+          {
+            "heading": "转折",
+            "text": "公主发现所谓囚禁其实是一场政治交易，王子选择留下是为了保护山谷村民。"
+          },
+          {
+            "heading": "结局方向",
+            "text": "两人公开旧约，拒绝利用传统婚约解决政治冲突，转而推动双方重新谈判。"
+          }
+        ],
+        "demo_scenario": "fantasy",
+        "demo_stage": 1
+      },
+      "change_summary": "加载预编写演示场景",
+      "time": "2026-11-23T04:12:42.591Z",
+      "mode": "demo"
+    },
+    {
+      "number": 2,
+      "outline": {
+        "title": "灰烬山脉与最后一条龙",
+        "sections": [
+          {
+            "heading": "故事起点",
+            "text": "强壮的公主出发营救山谷中的王子，途中发现沉睡的古龙已经苏醒，封锁山路的并非普通军队而是猎龙团。"
+          },
+          {
+            "heading": "人物与关系",
+            "text": "王子能解读龙语，公主负责保护队伍；一条幼龙误认公主为曾经救过它的人，成为不可靠却关键的伙伴。"
+          },
+          {
+            "heading": "冲突升级",
+            "text": "王国试图夺取龙焰控制山区资源。公主必须在迅速救出王子和帮助龙族摆脱追捕之间选择。"
+          },
+          {
+            "heading": "主要转折",
+            "text": "王子留下不是因为无力逃走，而是在守护一处龙卵遗址。公主发现这场营救牵涉王国与龙族长期被掩盖的契约。"
+          },
+          {
+            "heading": "结局方向",
+            "text": "公主、王子与龙族一同揭露谎言，阻止全面战争，救援从个人行动变为改变政治关系的冒险。"
+          }
+        ],
+        "demo_scenario": "fantasy",
+        "demo_stage": 2
+      },
+      "change_summary": "脚本示范：龙改变了救援动机、人物关系与冲突",
+      "time": "2026-11-23T04:26:30.226Z",
+      "mode": "demo"
+    },
+    {
+      "number": 3,
+      "outline": {
+        "title": "灰烬山脉：王子与龙族的秘密盟约",
+        "sections": [
+          {
+            "heading": "故事起点",
+            "text": "公主深入灰烬山脉寻找王子，却发现王子主动留下来照料一条受伤的幼龙。公主从营救者转为必须理解双方立场的谈判者。"
+          },
+          {
+            "heading": "人物与关系",
+            "text": "王子曾秘密向龙族长老承诺保护龙卵遗址；幼龙把他当作可信任的监护人，而公主起初认为这份承诺让王子背弃王国。三方从误解、争执走向相互信任。"
+          },
+          {
+            "heading": "冲突升级",
+            "text": "猎龙团以王子的承诺为叛国证据，试图逼公主交出王子。龙族担心人类再次背约，要求王子留下作担保。"
+          },
+          {
+            "heading": "主要转折",
+            "text": "公主发现当年的王室契约其实由父辈撕毁；王子并非被动受困，而是以自己的自由换取龙族暂缓报复。公主决定将私人救援升级为公开谈判。"
+          },
+          {
+            "heading": "结局方向",
+            "text": "公主公开旧约与双方隐瞒的事实，王子向龙族说明自己承诺的边界，龙族长老同意共同监督新的停战条约。三人的关系由保护与被保护转为共同承担责任。"
+          }
+        ],
+        "demo_scenario": "fantasy",
+        "demo_stage": 3
+      },
+      "change_summary": "固定脚本第三轮：强化王子—幼龙—公主关系及其情节后果",
+      "time": "2026-11-23T04:26:57.106Z",
+      "mode": "demo"
+    }
+  ],
+  "current": 2,
+  "recordsByVersion": {
+    "0": [
+      {
+        "id": "fantasy-priory",
+        "title": "The Priory of the Orange Tree — Samantha Shannon",
+        "url": "https://www.bloomsbury.com/uk/priory-of-the-orange-tree-9781408883358/",
+        "sectionIndex": 2,
+        "comparison": "人工预选的主题对照：该书涉及龙、王权和政治权力；V1关联的是王室背叛这一宽泛政治冲突，V2–V3才涉及龙族。仅说明主题交集，不表示相同情节、文字重复或创作来源。",
+        "kind": "manually_curated",
+        "source": "Bloomsbury Publishing · publisher book page",
+        "review_basis": "出版社作品介绍（人工核对）",
+        "reviewed": false,
+        "selected": false,
+        "highlightText": "王室曾经的背叛"
+      },
+      {
+        "id": "fantasy-hobbit",
+        "title": "The Hobbit — J. R. R. Tolkien",
+        "url": "https://www.harperreach.com/products/the-hobbit-j-r-r-tolkien-9780007458424/",
+        "sectionIndex": 0,
+        "comparison": "人工预选的宽泛题材对照（相关性较弱）：该书包含冒险与龙的元素；V1仅关联营救与冒险这一一般母题，并非指具体桥段重合；V2–V3才引入龙。不能据此认定文本或情节相似。",
+        "kind": "manually_curated",
+        "source": "HarperCollins / HarperReach · official product page",
+        "review_basis": "出版方产品介绍（人工核对）",
+        "reviewed": false,
+        "selected": false,
+        "highlightText": "救出被困山谷的王子"
+      }
+    ],
+    "1": [
+      {
+        "id": "fantasy-priory",
+        "title": "The Priory of the Orange Tree — Samantha Shannon",
+        "url": "https://www.bloomsbury.com/uk/priory-of-the-orange-tree-9781408883358/",
+        "sectionIndex": 2,
+        "comparison": "人工预选的主题对照：该书涉及龙、王权和政治权力；V1关联的是王室背叛这一宽泛政治冲突，V2–V3才涉及龙族。仅说明主题交集，不表示相同情节、文字重复或创作来源。",
+        "kind": "manually_curated",
+        "source": "Bloomsbury Publishing · publisher book page",
+        "review_basis": "出版社作品介绍（人工核对）",
+        "reviewed": true,
+        "selected": true,
+        "highlightText": "王国试图夺取龙焰控制山区资源"
+      },
+      {
+        "id": "fantasy-hobbit",
+        "title": "The Hobbit — J. R. R. Tolkien",
+        "url": "https://www.harperreach.com/products/the-hobbit-j-r-r-tolkien-9780007458424/",
+        "sectionIndex": 0,
+        "comparison": "人工预选的宽泛题材对照（相关性较弱）：该书包含冒险与龙的元素；V1仅关联营救与冒险这一一般母题，并非指具体桥段重合；V2–V3才引入龙。不能据此认定文本或情节相似。",
+        "kind": "manually_curated",
+        "source": "HarperCollins / HarperReach · official product page",
+        "review_basis": "出版方产品介绍（人工核对）",
+        "reviewed": true,
+        "selected": true,
+        "highlightText": "沉睡的古龙已经苏醒"
+      }
+    ],
+    "2": [
+      {
+        "id": "fantasy-priory",
+        "title": "The Priory of the Orange Tree — Samantha Shannon",
+        "url": "https://www.bloomsbury.com/uk/priory-of-the-orange-tree-9781408883358/",
+        "sectionIndex": 2,
+        "comparison": "人工预选的主题对照：该书涉及龙、王权和政治权力；V1关联的是王室背叛这一宽泛政治冲突，V2–V3才涉及龙族。仅说明主题交集，不表示相同情节、文字重复或创作来源。",
+        "kind": "manually_curated",
+        "source": "Bloomsbury Publishing · publisher book page",
+        "review_basis": "出版社作品介绍（人工核对）",
+        "reviewed": false,
+        "selected": false,
+        "highlightText": "龙族担心人类再次背约"
+      },
+      {
+        "id": "fantasy-hobbit",
+        "title": "The Hobbit — J. R. R. Tolkien",
+        "url": "https://www.harperreach.com/products/the-hobbit-j-r-r-tolkien-9780007458424/",
+        "sectionIndex": 0,
+        "comparison": "人工预选的宽泛题材对照（相关性较弱）：该书包含冒险与龙的元素；V1仅关联营救与冒险这一一般母题，并非指具体桥段重合；V2–V3才引入龙。不能据此认定文本或情节相似。",
+        "kind": "manually_curated",
+        "source": "HarperCollins / HarperReach · official product page",
+        "review_basis": "出版方产品介绍（人工核对）",
+        "reviewed": false,
+        "selected": false,
+        "highlightText": "公主深入灰烬山脉寻找王子"
+      }
+    ]
+  }
+}
