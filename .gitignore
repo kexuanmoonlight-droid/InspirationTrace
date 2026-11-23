@@ -1,0 +1,17 @@
+# Python generated files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+# Local machine / secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+# OS and editors
+.DS_Store
+Thumbs.db
+.vscode/
+# Temporary exports (do not commit personal stories without review)
+exports/
