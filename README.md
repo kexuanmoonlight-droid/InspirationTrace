@@ -1,5 +1,8 @@
 # InspirationTrace V5.5 EN — Offline Demo / Local Ollama / OpenAI
 
+**README prose word count (approximate): 1991 words** (excluding fenced code blocks and URL strings; includes headings and narrative documentation). This is documentation prose, not the A2 report word count.
+
+
 **Status:** research prototype. V4 is preserved separately; this is a new branch/version. No API credit is required for the default offline demo.
 
 ## Quick start on Windows
