@@ -1,7 +1,7 @@
 # InspirationTrace — Design Decisions, Development and Review Log
 
 **Project:** InspirationTrace (A1-informed A2 intelligent-interaction prototype)  
-**Record type:** Retrospective reconstruction from the project conversation and supplied artefacts, prepared 2026-11-23.  
+**Record type:** Retrospective reconstruction from the project conversation and supplied artefacts, prepared 2026-11-23; this is not a contemporaneous V1–V4 Git history.  
 **Important distinction:** A **student observation/decision** records a stated judgement or reported interaction. A **developer change** records a generated or proposed implementation. A **test result** requires an identifiable executed check. Discussion alone is not a passed test.
 
 ## A. Research continuity and decisions
@@ -50,9 +50,9 @@ These are documented writing and submission changes, not evidence that software 
 4. Retained A1's nuance: Doshi and Hauser concern collective diversity, not proof of plagiarism; Wang concerns visual designers rather than novelists.
 5. Student flagged omission of Wang et al. (2025) during a V4 report update; the citation and reference were restored.
 6. References subsequently aligned to A1's APA style and to cited A2 sources; citations must not be silently removed in future technical edits.
-7. Updated A2 from legacy walkthrough language to V4 code boundary. **V5 remains a separate development branch until personally tested; final report implementation claims must be reconciled with submitted repository commit.**
+7. Updated A2 to distinguish the implemented V5.5 scripted demo from the unverified live-model and dynamic-retrieval paths. The final report links a specific repository commit; it must be updated if the submission snapshot changes.
 
-## D. Evidence inventory and what still needs recording
+## D. Evidence inventory and verification limits
 
 | Evidence ID | Available evidence in conversation / project | Claim it can support | Not supported |
 |---|---|---|---|
@@ -62,34 +62,20 @@ These are documented writing and submission changes, not evidence that software 
 | E04 | V4 UI screenshot with HTTP 429 and preserved input | Live model request blocked by exhausted API credit; UI preserved the typed text in this observed case | Success of initial outline generation |
 | E05 | Developer-run V5 12 unit tests and smoke check | Automated scripted-mode/backend checks in development environment | Student browser testing or local Ollama quality |
 | E06 | Approved cyclic storyboard and recorded chat feedback | User-defined design requirements and author-involved corrections | Quantified user-study findings |
+| E07 | [Chinese V5.4 JSON export](evidence/V5_4_Chinese_scripted_test_export.json) | Three scripted outline versions, six chat messages and version-specific thematic reference states | English V5.5 output, live model generation or source-retrieval quality |
+| E08 | [V5.5 student and mocked-browser screenshots](screenshots/) | Browser presentation and interface controls, with tester provenance identified in `TEST_REPORT.md` | Real-author effectiveness or unscripted model capability |
 
 **Screenshot hygiene:** A previous PowerShell screenshot displayed a long API-key fragment. Do **not** upload raw terminal screenshots containing credentials to a public GitHub repository. Redact all key fragments and personal paths where desired, or create a safe text-only reproduction of the error code. If full credentials could have leaked, rotate the key.
 
-### To complete after hands-on V5 testing
+## E. Lessons and verification boundary
 
-- [ ] Student starts V5 without key and checks offline mode in Chrome/Edge.
-- [ ] D01–D08 manual demo tests logged with date/browser/version and actual output.
-- [ ] T01–T12 from V4 Excel kept separate: scripted examples cannot make live AI tests pass.
-- [ ] Record at least one defect, own assessment, proposed fix and same-case retest (if discovered).
-- [ ] Confirm whether local Ollama can run on user's hardware, then test model quality separately if used.
-- [ ] Confirm source links open and exactly which comparison they support.
-- [ ] Upload final clean sources to GitHub, record commit and README link.
-- [ ] Update A2 implementation status and screenshots only after personal verification.
+The student rejected appending new prompt text to a fixed story as a substitute for coherent co-creation. This led to an outline-and-conversation context design and, when cloud access was blocked, to an openly scripted prototype. The student verified V4 mocked tests and the HTTP 429 incident, then identified subsequent scripted third-turn and highlighting defects. V5.4 and V5.5 browser acceptance is recorded separately from automated regression checks. **No live open-ended generation or automatic similarity retrieval has been validated.**
 
-## E. Suggested Rubric-4 development-evidence example (use only after verification)
-
-**Observation:** The author reported that the second prompt did not produce a meaningfully revised story.  
-**Decision:** Reject concatenating text as a substitute for AI co-creation; use the current outline and relevant conversation as model context.  
-**Assisted change:** Generated V3/V4 server-side model-call design; later added an explicit offline simulation because cloud API access was blocked.  
-**Checks:** Student personally ran V4 5/5 mock tests and observed HTTP 429 in the live attempt.  
-**Not yet verified:** A live model genuinely revising arbitrary fiction over several turns.  
-
-Keep this chain intact. Do not convert a user requirement or code change into a claimed successful end-to-end test.
-
+**Git provenance:** all public repository commits were made on 23 November 2026, when earlier local work was uploaded. This log reconstructs earlier decisions retrospectively from the conversation, uploaded documents and available artefacts; it is not a substitute for time-stamped intermediate Git commits. Commit dates have not been altered or backdated.
 
 ## Follow-up observation: scripted third turn and empty evidence sidebar (23 November 2026)
 
-The project author reported that the first two outline stages appeared, but a third creative instruction concerning character relationships did not produce an updated outline. They also observed no displayed references or similar works in the right sidebar. Examination of `offline_modes.py` confirmed fixed follow-up scripts and a source example limited to the memory-trading scenario. This supports diagnosing the *offline mode's known scope*; the exact browser state and selected mode await a screenshot or reproduction.
+The project author reported that the first two outline stages appeared, but a third creative instruction concerning character relationships did not produce an updated outline. They also observed no displayed references or similar works in the right sidebar. Examination of `offline_modes.py` confirmed fixed follow-up scripts and a source example limited to the memory-trading scenario. This supports diagnosing the *offline mode's known scope*; this observation was later addressed with a bounded V5.1 scripted demonstration, not a live-model fix.
 
 **Student feedback:** This does not meet the confirmed goal of natural, open-ended multi-turn creative co-writing with dynamically retrieved evidence.
 
@@ -98,9 +84,9 @@ The project author reported that the first two outline stages appeared, but a th
 **Verification boundary:** No claim that the third turn was handled by a real model or that dynamic provenance retrieval was tested. See TEST_REPORT.md OBS-V5-001 and OBS-V5-002.
 
 
-## 2026-11-23 — V5.1 targeted repair (AI-assisted; pending student retest)
+## 2026-11-23 — V5.1 targeted repair (AI-assisted)
 
-Student requested that the existing V5 small interaction loop be repaired rather than rewriting the A2 report/storyboard before testing. Specifically, a third-round change to prince/dragon relationships and credible **real URLs** for right-sidebar candidate published works were required. An AI-assisted change supplied one transparent predetermined V3 branch, two manually verified published-work pages, source-to-outline association, persistent review selections on refresh, and test documentation. This supports a bounded demonstration, not conversational understanding or dynamic source similarity. Automated tests passed (14/14); student browser acceptance remains pending.
+Student requested that the existing V5 small interaction loop be repaired rather than rewriting the A2 report/storyboard before testing. Specifically, a third-round change to prince/dragon relationships and credible **real URLs** for right-sidebar candidate published works were required. An AI-assisted change supplied one transparent predetermined V3 branch, two manually verified published-work pages, source-to-outline association, persistent review selections on refresh, and test documentation. This supports a bounded demonstration, not conversational understanding or dynamic source similarity. Automated tests passed (14/14); later acceptance relates to V5.4 and V5.5 after additional hover fixes.
 
 ## V5.2 — Restoring an original interaction requirement
 
@@ -110,12 +96,12 @@ Student requested that the existing V5 small interaction loop be repaired rather
 
 **AI-assisted change:** Add exact phrase anchors in evidence data, bidirectional pointer/keyboard highlighting, visible-scroll behavior, and regression tests. Keep real-source links and caution against treating thematic overlap as evidence of copying.
 
-**Verification:** Automated tests and JS syntax checks passed; the student's real browser retest and screenshot remain pending.
+**Verification at V5.2:** Automated tests and JS syntax checks passed, but subsequent student testing revealed V1 annotations were still missing. The issue was fixed later in V5.4.
 
 
 ## V5.4 — Student visual regression exposed missing V1 anchors
 
-The student supplied a V1 screenshot showing actual candidate source cards but no underlined spans, after reporting that refreshing did not help. We inspected the source and found that this was by design in the earlier scripted stage-1 evidence mapping, in contradiction to the student's original hover-link specification. The earlier V5.2 and V5.3 changes were insufficient: their regression tests covered hover handlers but explicitly allowed V1 to have no anchor. The developer therefore made a narrowly scoped change to stage-1 evidence mapping and browser migration, preserved all other behavior, and added a unit test and Chromium DOM smoke test. The new V1 labels are broad thematic pointers, not source attribution, text overlap, or plagiarism proof. The user still needs to validate visual behavior on Windows; final report/storyboard edits remain deferred until testing finishes.
+The student supplied a V1 screenshot showing actual candidate source cards but no underlined spans, after reporting that refreshing did not help. We inspected the source and found that this was by design in the earlier scripted stage-1 evidence mapping, in contradiction to the student's original hover-link specification. The earlier V5.2 and V5.3 changes were insufficient: their regression tests covered hover handlers but explicitly allowed V1 to have no anchor. The developer therefore made a narrowly scoped change to stage-1 evidence mapping and browser migration, preserved all other behavior, and added a unit test and Chromium DOM smoke test. The new V1 labels are broad thematic pointers, not source attribution, text overlap, or plagiarism proof. The student subsequently verified the corrected behaviour on Windows as part of the full V5.4 walkthrough.
 
 
 ## 2026-11-23 — Student accepts V5.4 and chooses to move to submission preparation
@@ -125,7 +111,7 @@ The student reported completing the full V5.4 workflow and a successful project 
 
 ## 23 November 2026 — V5.5 English-language interface (AI-assisted, user-requested)
 
-After the student confirmed the V5.4 offline interaction and JSON export, the student supplied two Windows screenshots and requested English-language presentation for the final coursework, including updating GitHub. The implementation retained the entire interaction model and backed up the accepted Chinese sources under `legacy_zh/`. Labels, three scripted example scenarios, scripted conversation responses, English evidence comparisons, and V1–V3 phrase-level hover anchors were translated. Student V5.4 screenshots remain historical evidence; V5.5 was checked with 19 Python tests and a mocked-API headless browser smoke test, but **student acceptance on Windows is not yet established**. No change was made to the intended study population or open-ended AI co-creation ambition; cloud API billing remains blocked.
+After the student confirmed the V5.4 offline interaction and JSON export, the student supplied two Windows screenshots and requested English-language presentation for the final coursework, including updating GitHub. The implementation retained the entire interaction model and backed up the accepted Chinese sources under `legacy_zh/`. Labels, three scripted example scenarios, scripted conversation responses, English evidence comparisons, and V1–V3 phrase-level hover anchors were translated. Student V5.4 screenshots remain historical evidence; V5.5 was checked with 19 Python tests and a mocked-API headless browser smoke test, and subsequent independent student acceptance on Windows was reported after this build. No change was made to the intended study population or open-ended AI co-creation ambition; cloud API billing remains blocked.
 
 
 ## 23 November 2026 — student acceptance of final English prototype
