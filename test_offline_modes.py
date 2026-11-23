@@ -13,7 +13,7 @@ class OfflineModesTests(unittest.TestCase):
         first=mock_chat({'message':'强壮的公主救王子'})
         second=mock_chat({'message':'加入龙元素','currentOutline':first['outline']})
         self.assertTrue(second['updated'])
-        self.assertIn('龙', ' '.join(x['text'] for x in second['outline']['sections']))
+        self.assertIn('dragon', ' '.join(x['text'] for x in second['outline']['sections']))
         self.assertNotEqual(first['outline']['title'],second['outline']['title'])
         self.assertEqual(second['outline']['demo_stage'],2)
     def test_three_round_fantasy_revision_and_verified_links(self):
@@ -23,14 +23,14 @@ class OfflineModesTests(unittest.TestCase):
         self.assertTrue(third['updated'])
         self.assertEqual(third['outline']['demo_stage'],3)
         body=' '.join(x['text'] for x in third['outline']['sections'])
-        self.assertIn('王子',body)
-        self.assertIn('龙族',body)
+        self.assertIn('prince',body)
+        self.assertIn('dragon',body)
         self.assertNotEqual(second['outline']['sections'][1]['text'], third['outline']['sections'][1]['text'])
         evidence=demo_evidence({'outline':third['outline']})
         self.assertEqual(len(evidence['records']),2)
         for record in evidence['records']:
             self.assertTrue(record['url'].startswith('https://'))
-            self.assertIn('人工', record['comparison'] if '人工' in record['comparison'] else evidence['notice'])
+            self.assertIn('Manually', record['comparison'] if 'Manually' in record['comparison'] else evidence['notice'])
             self.assertIsInstance(record['sectionIndex'],int)
     def test_fantasy_stage_one_has_broad_but_explicitly_limited_links(self):
         first=mock_chat({'message':'强壮的公主救王子'})
@@ -40,12 +40,12 @@ class OfflineModesTests(unittest.TestCase):
         self.assertIn('V1', evidence['records'][0]['comparison'])
     def test_any_unknown_request_not_misrepresented(self):
         r=mock_chat({'message':'请写一个关于量子花店的故事'})
-        self.assertFalse(r['updated']);self.assertIn('无法智能创作',r['message'])
+        self.assertFalse(r['updated']);self.assertIn('does not match a prepared scene',r['message'])
     def test_unrecognized_followup_does_not_fake_semantic_understanding(self):
         start=mock_chat({'message':'公主救王子'})
         r=mock_chat({'message':'把地面换成积木','currentOutline':start['outline']})
         self.assertFalse(r['updated'])
-        self.assertIn('没有匹配',r['message'])
+        self.assertIn('No prepared continuation',r['message'])
     def test_generic_local_story_has_no_fake_references(self):
         out={'title':'试验','sections':[{'heading':'a','text':'b'}]}
         r=demo_evidence({'outline':out})
