@@ -23,23 +23,23 @@ def reply(handler,status,data):
 
 def provider(endpoint,body):
     key=os.getenv('OPENAI_API_KEY','').strip()
-    if not key:raise RuntimeError('没有配置 OPENAI_API_KEY。请先在本地终端设置 API Key，再运行 server.py。')
+    if not key:raise RuntimeError('OPENAI_API_KEY is not set. Set the key in your local terminal before starting server.py.')
     req=Request('https://api.openai.com/v1/'+endpoint, data=json.dumps(body,ensure_ascii=False).encode('utf-8'),headers={'Content-Type':'application/json','Authorization':'Bearer '+key},method='POST')
     try:
         with urlopen(req,timeout=110) as r:return json.loads(r.read().decode('utf-8'))
     except HTTPError as e:
         detail=e.read().decode('utf-8','replace')[:450]
-        raise RuntimeError('模型服务 HTTP '+str(e.code)+'：'+detail)
-    except URLError as e:raise RuntimeError('无法连接模型服务：'+str(e.reason))
+        raise RuntimeError('Model service HTTP '+str(e.code)+'：'+detail)
+    except URLError as e:raise RuntimeError('Could not connect to the model service: '+str(e.reason))
 
 def valid_outline(out):
-    if not isinstance(out,dict) or not isinstance(out.get('sections'),list):raise ValueError('模型未返回有效故事大纲。')
+    if not isinstance(out,dict) or not isinstance(out.get('sections'),list):raise ValueError('The model did not return a valid story outline.')
     sections=[]
     for row in out['sections'][:12]:
         if not isinstance(row,dict):continue
         head=str(row.get('heading','')).strip()[:160];body=str(row.get('text','')).strip()[:7000]
         if head and body:sections.append({'heading':head,'text':body})
-    if not sections:raise ValueError('模型返回的大纲为空。')
+    if not sections:raise ValueError('The model returned an empty outline.')
     result={'title':str(out.get('title','Untitled story'))[:180],'sections':sections}
     if out.get('demo_scenario') in ('memory','mystery','fantasy'):
         result['demo_scenario']=out['demo_scenario'];result['demo_stage']=int(out.get('demo_stage',1))
@@ -47,7 +47,7 @@ def valid_outline(out):
 
 def chat(payload):
     message=str(payload.get('message','')).strip()
-    if not message or len(message)>12000:raise ValueError('请输入 1–12000 字的创作消息。')
+    if not message or len(message)>12000:raise ValueError('Enter a creative-writing message of 1–12,000 characters.')
     current=payload.get('currentOutline')
     if current is not None: current=valid_outline(current)
     history=payload.get('history') or []
@@ -64,8 +64,8 @@ def chat(payload):
     try:
         obj=json.loads(raw['choices'][0]['message']['content']); update=obj.get('update_outline') is True
         outline=valid_outline(obj.get('outline')) if update else None
-        return {'message':str(obj.get('message',''))[:5000] or ('已更新故事大纲。' if update else '我们可以继续探讨。'),'updated':update,'outline':outline,'change_summary':str(obj.get('change_summary',''))[:1000]}
-    except (ValueError,KeyError,IndexError,TypeError,json.JSONDecodeError) as e:raise RuntimeError('模型返回格式无法解析：'+str(e))
+        return {'message':str(obj.get('message',''))[:5000] or ('Story outline updated.' if update else 'We can explore this further.'),'updated':update,'outline':outline,'change_summary':str(obj.get('change_summary',''))[:1000]}
+    except (ValueError,KeyError,IndexError,TypeError,json.JSONDecodeError) as e:raise RuntimeError('Could not parse the model response: '+str(e))
 
 def candidate_sources(payload):
     """Only return source URLs present in provider web-search citation annotations.
@@ -94,8 +94,8 @@ def candidate_sources(payload):
                 if section is not None and not (0<=section<len(outline['sections'])):section=None
                 chunk=before[section_matches[-1].end():].strip() if section_matches else ''
                 chunk=re.sub(r'\s+',' ',chunk)[-650:]
-                cards.append({'id':'src-'+str(len(cards)+1),'title':str(node.get('title','Source page'))[:180],'url':url,'sectionIndex':section,'comparison':chunk[:400] or '请打开原文页面核查相似处与差异。','kind':'potentially_similar','reviewed':False,'selected':False})
-    return {'records':cards[:8],'has_search_citations':bool(cards),'notice':('仅显示搜索工具实际返回的可点击引用链接。候选作品并非AI生成来源；简介层面的比较不能证明全文相似或抄袭。' if cards else '搜索未返回可验证的引用链接。本轮不展示相似作品结论，也不标记正文。'),'rawSummary':textout[:2500]}
+                cards.append({'id':'src-'+str(len(cards)+1),'title':str(node.get('title','Source page'))[:180],'url':url,'sectionIndex':section,'comparison':chunk[:400] or 'Please open the original source and assess similarities and differences.','kind':'potentially_similar','reviewed':False,'selected':False})
+    return {'records':cards[:8],'has_search_citations':bool(cards),'notice':('Only clickable URLs returned by the search tool are displayed. Candidate works are not verified model sources, and description-level comparisons do not establish plagiarism or full-text similarity.' if cards else 'Search returned no verifiable citation links; no similarity finding or inline annotations are shown.'),'rawSummary':textout[:2500]}
 
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self,*args,**kwargs):super().__init__(*args,directory=str(ROOT),**kwargs)
@@ -106,19 +106,19 @@ class Handler(SimpleHTTPRequestHandler):
         if self.path not in ('/api/chat','/api/evidence'):return reply(self,404,{'error':'Not found'})
         try:
             size=int(self.headers.get('Content-Length','0'))
-            if not 0<size<=200000:raise ValueError('请求内容为空或过长。')
+            if not 0<size<=200000:raise ValueError('Request body is empty or too long.')
             payload=json.loads(self.rfile.read(size))
-            if not isinstance(payload,dict):raise ValueError('请求不是对象。')
+            if not isinstance(payload,dict):raise ValueError('Request body must be a JSON object.')
             mode=str(payload.get('mode',DEFAULT_MODE)).lower()
-            if mode not in ('demo','ollama','openai'):raise ValueError('未知运行模式。')
+            if mode not in ('demo','ollama','openai'):raise ValueError('Unknown run mode.')
             if self.path=='/api/chat':
                 data=mock_chat(payload) if mode=='demo' else (ollama_chat(payload,SYSTEM,valid_outline) if mode=='ollama' else chat(payload))
             else:
-                data=demo_evidence(payload) if mode=='demo' else ({'records':[],'notice':'Ollama仅提供本地创作；当前没有可靠的来源检索。请勿把未核实链接当作证据。'} if mode=='ollama' else candidate_sources(payload))
+                data=demo_evidence(payload) if mode=='demo' else ({'records':[],'notice':'Ollama supports local generation only; reliable source retrieval is unavailable. Do not treat unverified links as evidence.'} if mode=='ollama' else candidate_sources(payload))
             return reply(self,200,data)
         except ValueError as e:return reply(self,400,{'error':str(e)})
         except (RuntimeError,KeyError,TypeError) as e:return reply(self,503,{'error':str(e)})
-        except Exception as e:return reply(self,500,{'error':'服务器异常：'+type(e).__name__})
+        except Exception as e:return reply(self,500,{'error':'Server error: '+type(e).__name__})
     def log_message(self,*args):pass
 
 if __name__=='__main__':
